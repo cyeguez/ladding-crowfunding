@@ -18,16 +18,13 @@ header .header__container {
   align-items: center;
 }
 header .header__container .logo {
-  width: -moz-fit-content;
   width: fit-content;
 }
 header .header__container .icon-menu {
-  width: -moz-fit-content;
   width: fit-content;
   cursor: pointer;
 }
 header .header__container .icon-close-menu {
-  width: -moz-fit-content;
   width: fit-content;
   cursor: pointer;
   display: none;
@@ -72,7 +69,6 @@ header .header__container .nav ul li:nth-child(1), header .header__container .na
     align-items: center;
   }
   header .header__container .logo {
-    width: -moz-fit-content;
     width: fit-content;
   }
   header .header__container .icon-menu {
@@ -82,7 +78,6 @@ header .header__container .nav ul li:nth-child(1), header .header__container .na
     display: none;
   }
   header .header__container .nav {
-    width: -moz-fit-content;
     width: fit-content;
     height: auto;
     margin-top: 0;
@@ -220,7 +215,6 @@ header .header__container .nav ul li:nth-child(1), header .header__container .na
   margin-bottom: 0;
 }
 .main__container .modal svg {
-  width: -moz-fit-content;
   width: fit-content;
 }
 .main__container .modal__parraf {
@@ -397,11 +391,9 @@ figure {
   width: 100%;
   display: block;
   /* (Opcional) */
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   /* (Opcional) */
-  -o-object-position: center center;
-     object-position: center center;
+  object-position: center center;
 }
 
 /* Reseteamos los enlaces para funcionar como cajas... */
@@ -460,10 +452,6 @@ q:after {
 }
 
 /* (Opcional) Configuramos el texto que seleccionamos */
-::-moz-selection {
-  background-color: var(--negro);
-  color: var(--blanco);
-}
 ::selection {
   background-color: var(--negro);
   color: var(--blanco);
@@ -478,15 +466,12 @@ button,
 label {
   font-family: inherit;
   font-size: inherit;
-  -webkit-hyphens: auto;
-          hyphens: auto;
+  hyphens: auto;
   background-color: transparent;
   color: inherit;
   display: block;
   /* (Opcional) */
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  appearance: none;
 }
 
 /* Reseteamos las tablas */
@@ -588,9 +573,7 @@ body {
 .card-disabled {
   opacity: 0.7;
   pointer-events: none;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  user-select: none;
 }
 
 .button-disabled {
@@ -600,11 +583,9 @@ body {
 .input-radio {
   width: 20px;
   height: 20px;
-  -webkit-appearance: auto;
-     -moz-appearance: auto;
-          appearance: auto;
+  appearance: auto;
 }
 
 .card-selected {
   border: 1px solid var(--Moderate-cyan);
-}/*# sourceMappingURL=style.css.map */
+}

@@ -4,11 +4,9 @@ const iconCloseMenu = document.querySelector(".icon-close-menu"); //icon x del m
 const section3 = document.querySelector(".section3");
 const btnsRewards = section3.querySelectorAll("button[type='button']"); // todas las cards de la sección3
 const modal = document.querySelector(".modal");
+const modalCards= modal.querySelectorAll(".card");
+const radios= modal.querySelectorAll("input[type='radio']"); //
 let nameClass;
-
-
-
-
 
 // funciones encargadas de mostrar el menu mobile
 const showMenuMobile = (element) => {
@@ -24,43 +22,53 @@ iconMenu.addEventListener("click", () => {
 }); // Evento disparador del menu
 
 iconCloseMenu.addEventListener("click", () => {
-  nav.classList.add("hidden");  
+  nav.classList.add("hidden");
   iconCloseMenu.style.display = "none";
   iconMenu.style.display = "block";
 });
 
-
 // funciones encaegadas de activar bordes verdes
 
 function paintCard(valueX) {
-  console.log(valueX)
-  const modalCards= modal.querySelectorAll("div[id]");
- 
+
+  let card = modal.querySelector(`#${valueX}`);
+  let containerInput = card.querySelector(".modal__card__container-buttons");
+  let inputRadio = card.querySelector("input[type='radio']");
   
   
-  
-//   let inputRadio= modal.querySelector("input[type='radio']");
-//  console.log(inputRadio)
-//    inputRadio.checked= true;
-//   let activeInput= card.querySelector(".modal__card__container-buttons");
-  
-//   card.classList.add("card-selected");
-//   activeInput.classList.remove("hidden");
-  
+  card.classList.add("card-selected");
+  containerInput.classList.remove("hidden");
+  inputRadio.checked= true;
+
 }
 
-
 btnsRewards.forEach((btn) => {
-  btn.addEventListener("click",function(e) {
-
-    let nameCard= e.target.classList[1];
+  btn.addEventListener("click", function (e) {
+    let nameCard = e.target.classList[1];
     paintCard(nameCard);
   });
 });
 
+const cardOff= () => {
+ modalCards.forEach(card => {
+   let containerInput = card.querySelector(".modal__card__container-buttons");
+   let inputRadio = card.querySelector("input[type='radio']");
+   
+   card.classList.remove("card-selected");
+   containerInput.classList.add("hidden");
+   inputRadio.checked= false;
+
+ });
+};
 
 
-
-
-
-
+//Agregando los eventos a los inputs radios
+radios.forEach(input =>{
+  input.addEventListener("click", function(e){
+   let padre =(e.target.parentNode);
+   let abuelo = padre.parentNode.id
+   
+    cardOff();
+    paintCard(abuelo);
+  })
+});
