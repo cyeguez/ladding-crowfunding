@@ -1,0 +1,610 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;700&display=swap");
+header {
+  width: min(100%, 375px);
+  height: 33vh;
+  margin: 0 auto;
+  background-image: url("../images/image-hero-mobile.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+header .header__container {
+  padding: 1.875rem 1.5rem;
+  display: flex;
+  flex-direction: row;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+header .header__container .logo {
+  width: -moz-fit-content;
+  width: fit-content;
+}
+header .header__container .icon-menu {
+  width: -moz-fit-content;
+  width: fit-content;
+  cursor: pointer;
+}
+header .header__container .icon-close-menu {
+  width: -moz-fit-content;
+  width: fit-content;
+  cursor: pointer;
+  display: none;
+}
+header .header__container .nav {
+  width: 100%;
+  margin-top: 2rem;
+  background-color: var(--White);
+  border-radius: 8px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  transition: opacity 500ms;
+  z-index: 1;
+}
+header .header__container .nav ul li {
+  padding: 1.5rem;
+  font-weight: 700;
+}
+header .header__container .nav ul li:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+header .header__container .nav ul li:nth-child(1), header .header__container .nav ul li:nth-child(2) {
+  border-bottom: 1px solid var(--Gray);
+}
+
+@media screen and (min-width: 768px) {
+  header {
+    width: min(100%, 1440px);
+    height: 43vh;
+    margin: 0 auto;
+    background-image: url("../images/image-hero-desktop.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  header .header__container {
+    padding: 1.875rem 1.5rem;
+    display: flex;
+    flex-direction: row;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+  header .header__container .logo {
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+  header .header__container .icon-menu {
+    display: none;
+  }
+  header .header__container .icon-close-menu {
+    display: none;
+  }
+  header .header__container .nav {
+    width: -moz-fit-content;
+    width: fit-content;
+    height: auto;
+    margin-top: 0;
+    background-color: var(--White);
+    pointer-events: all;
+    transition: opacity 500ms;
+    opacity: 1;
+    background-color: transparent;
+  }
+  header .header__container .nav ul {
+    display: flex;
+    flex-direction: row;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+  header .header__container .nav ul li {
+    padding: 1.5rem;
+    font-weight: 700;
+    color: var(--White);
+  }
+  header .header__container .nav ul li:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  header .header__container .nav ul li:nth-child(1), header .header__container .nav ul li:nth-child(2) {
+    border-bottom: none;
+  }
+}
+.main__container {
+  width: min(100%, 375px);
+  margin: 0 auto;
+  min-height: 10vh;
+  padding: 1.875rem 1.5rem;
+}
+.main__container .section1 {
+  margin-top: -50px;
+  position: relative;
+}
+.main__container .section1__branch {
+  position: absolute;
+  top: -30px;
+  left: calc(50% - 1.5rem);
+}
+.main__container .section1__title {
+  width: 60%;
+  margin: 57px auto 1.5rem auto;
+  font-size: 1em;
+  text-align: center;
+  font-weight: 700;
+  color: var(--Black);
+}
+.main__container .section1__text {
+  font-size: 0.8125em;
+  text-align: center;
+  line-height: 1.5rem;
+}
+.main__container .section1__container-buttons {
+  display: flex;
+  flex-direction: row;
+  flex-flow: row no-wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+.main__container .section1__container-buttons__bookmark {
+  display: flex;
+  flex-direction: row;
+  flex-flow: row no-wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.main__container .section1__container-buttons__bookmark .icon-bookmark circle:hover {
+  fill: var(--Dark-gray);
+}
+.main__container .section1__container-buttons__bookmark .icon-bookmark:hover {
+  cursor: pointer;
+}
+.main__container .section1__container-buttons__bookmark .bookmark__text {
+  display: none;
+}
+.main__container .section2__numbers__item {
+  text-align: center;
+  color: var(--Black);
+}
+.main__container .section2__numbers__item .cifra {
+  font-size: 2em;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+.main__container .section2__numbers__item .divider {
+  width: 84px;
+  height: 1px;
+  background-color: var(--Gray);
+  margin: 1.5rem auto;
+}
+.main__container .section2__numbers .section2__bar-progress {
+  width: 100%;
+  height: 1rem;
+  border-radius: 8px;
+}
+.main__container .section2__numbers progress::-webkit-progress-bar {
+  background-color: var(--Gray);
+  border-radius: 8px;
+}
+.main__container .section2__numbers progress::-webkit-progress-value {
+  background-color: var(--Moderate-cyan);
+  border-radius: 8px;
+}
+.main__container .section3__card__price {
+  font-size: 1.5em;
+  color: var(--Black);
+  font-weight: 700;
+  margin-bottom: 1.875rem;
+}
+.main__container .section3__card__price--text {
+  font-size: 0.8125em;
+  font-weight: 500;
+  color: var(--Dark-gray);
+}
+.main__container .modal {
+  position: sticky;
+  top: 80px;
+  bottom: 0;
+  left: 1.5rem;
+  right: 1.5rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: row;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.main__container .modal__title {
+  margin-bottom: 0;
+}
+.main__container .modal svg {
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.main__container .modal__parraf {
+  margin-top: 2rem;
+  width: 100%;
+  text-align: left;
+  font-size: 0.8125em;
+}
+.main__container .modal__card {
+  position: relative;
+}
+.main__container .modal__card__container-select {
+  margin-block: 1.5rem 1.875rem;
+  display: flex;
+  flex-direction: row;
+  flex-flow: row no-wrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+}
+.main__container .modal__card__container-select input {
+  cursor: pointer;
+}
+.main__container .modal__card__container-select input:checked {
+  background-color: var(--Moderate-cyan);
+  accent-color: var(--Moderate-cyan);
+}
+.main__container .modal__card__container-select label {
+  color: var(--Black);
+  font-weight: 700;
+  line-height: 1.5rem;
+  cursor: pointer;
+}
+.main__container .modal__card__container-select label span {
+  color: var(--Moderate-cyan);
+}
+.main__container .modal__card__text {
+  font-size: 0.8125em;
+  line-height: 1.5rem;
+  margin-bottom: 2rem;
+}
+.main__container .modal__card__price {
+  color: var(--Black);
+  font-weight: 700;
+  font-size: 0.875em;
+}
+.main__container .modal__card__price--text {
+  color: var(--Dark-gray);
+}
+.main__container .modal__card__container-buttons {
+  display: flex;
+  flex-direction: row;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: -1.5rem;
+  padding-top: 3rem;
+  padding-bottom: 1.5rem;
+}
+.main__container .modal__card__container-buttons hr {
+  width: 100%;
+  height: 2px;
+  background-color: var(--Gray);
+  margin-bottom: 1.5rem;
+}
+.main__container .modal__card__container-buttons p {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+.main__container .modal__card__container-buttons .input-num {
+  width: 93px;
+  height: 46px;
+  padding-left: 2rem;
+  border: 1px solid var(--Gray);
+  border-radius: 50px;
+  text-align: center;
+  color: var(--Dark-gray);
+  font-weight: 700;
+  background-image: url("../images/dollar.svg");
+  background-repeat: no-repeat;
+  background-position: 0.5rem 0.7rem;
+}
+.main__container .modal__card__container-buttons .input-num:focus {
+  outline: none;
+}
+.main__container .modal-success {
+  display: flex;
+  flex-direction: column;
+  flex-flow: column no-wrap;
+  justify-content: flex-start;
+  align-items: center;
+  position: fixed;
+  top: 150px;
+  left: 1.5rem;
+  right: 1.5rem;
+}
+.main__container .modal-success__icon-check {
+  margin-bottom: 1.6875rem;
+}
+.main__container .modal-success__title {
+  width: 100%;
+  font-size: 18px;
+  text-align: center;
+  font-weight: 700;
+  color: var(--Black);
+  margin-bottom: 1.75rem;
+}
+.main__container .modal-success__text {
+  margin-inline: -1.5rem;
+  text-align: center;
+  font-size: 0.75em;
+  line-height: 1.5rem;
+  margin-bottom: 2rem;
+  padding-inline: 1rem;
+}
+
+:root {
+  --Moderate-cyan: hsl(176, 50%, 47%);
+  --Dark-cyan: hsl(176, 72%, 28%);
+  --Black: hsl(0, 0%, 0%);
+  --Dark-gray: hsl(0, 0%, 48%);
+  --Gray: hsl(0, 0%, 87%);
+  --White: hsl(0, 0%, 100%);
+  --font: "Commissioner", sans-serif;
+}
+
+/* Definimos las Custom properties */
+:root {
+  /* Colores */
+  --negro: #393939;
+  /* TipografÃ­a */
+  --tipo-principal: Helvetica, Arial, sans-serif;
+  --tipo-secundaria: Verdana;
+}
+
+/* (Opcional) Las adaptamos al modo oscuro */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --negro: #ececec;
+  }
+}
+/* (Opcional) Configuramos si un usuario ha activado el modo alto contraste. (WD) */
+/* (Opcional) Desactivamos los animations en el caso de que el usuario haya configurado el modo sin animation */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+/* Reseteamos los margin y paddings de todas las etiquetas */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  vertical-align: baseline;
+}
+
+*::before,
+*::after {
+  display: block;
+}
+
+/* Evitamos problemas con las imagenes */
+img,
+picture,
+video,
+iframe,
+figure {
+  max-width: 100%;
+  width: 100%;
+  display: block;
+  /* (Opcional) */
+  -o-object-fit: cover;
+     object-fit: cover;
+  /* (Opcional) */
+  -o-object-position: center center;
+     object-position: center center;
+}
+
+/* Reseteamos los enlaces para funcionar como cajas... */
+a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  font-size: inherit;
+}
+
+/* ... excepto los que se encuentran en pÃ¡rrafos */
+p a {
+  display: inline;
+}
+
+/* Quitamos los puntos de los <li> */
+li {
+  list-style-type: none;
+}
+
+/* (Opcional) Configuramos anclas suaves */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Desactivamos estilos por defecto de las principales etiquetas de texto */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+a,
+strong,
+blockquote,
+i,
+b,
+u,
+em {
+  font-size: inherit;
+  font-weight: inherit;
+  font-style: inherit;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Evitamos problemas con los pseudoelementos de quotes */
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+/* (Opcional) Configuramos el texto que seleccionamos */
+::-moz-selection {
+  background-color: var(--negro);
+  color: var(--blanco);
+}
+::selection {
+  background-color: var(--negro);
+  color: var(--blanco);
+}
+
+/* Nivelamos problemas de tipografÃ­as y colocaciÃ³n de formularios */
+form,
+input,
+textarea,
+select,
+button,
+label {
+  font-family: inherit;
+  font-size: inherit;
+  -webkit-hyphens: auto;
+          hyphens: auto;
+  background-color: transparent;
+  color: inherit;
+  display: block;
+  /* (Opcional) */
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+/* Reseteamos las tablas */
+table,
+tr,
+td {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Evitamos problemas con los SVG */
+svg {
+  width: 100%;
+  display: block;
+  fill: currentColor;
+}
+
+/* Configuramos la tipografÃ­a para toda la web */
+body {
+  min-height: 100vh;
+  font-size: 100%;
+  font-family: var(--font);
+  font-weight: 400;
+  color: var(--Dark-gray);
+  overflow-y: auto;
+  /* (Opcional) */
+  /* (Opcional) */
+  -webkit-font-smoothing: antialiased;
+  /* (Opcional) */
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.button {
+  white-space: none;
+  text-align: center;
+  padding: 16px 25px;
+  background-color: var(--Moderate-cyan);
+  font-weight: 500;
+  border-radius: 50px;
+  color: var(--White);
+}
+.button:hover {
+  background-color: var(--Dark-cyan);
+  cursor: pointer;
+}
+
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.6s linear;
+  height: 0;
+}
+
+.mg-container {
+  padding: 2rem 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2), -2px -2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  background-color: var(--White);
+}
+
+.title {
+  font-size: 1.1875em;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: var(--Black);
+}
+
+.text {
+  width: 95%;
+  margin-bottom: 2rem;
+  font-size: 14px;
+  line-height: 1.5rem;
+}
+
+.card {
+  border: 1px solid var(--Gray);
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  padding-inline: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.title2 {
+  font-size: 0.8125em;
+  color: var(--Black);
+  font-weight: 700;
+  margin-block: 1.5rem 0.875rem;
+}
+
+.subtitle {
+  color: var(--Moderate-cyan);
+  font-size: 0.8125em;
+  font-weight: 700;
+  margin-bottom: 0.875rem;
+}
+
+.card-disabled {
+  opacity: 0.7;
+  pointer-events: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+
+.button-disabled {
+  background-color: var(--Dark-gray);
+}
+
+.input-radio {
+  width: 20px;
+  height: 20px;
+  -webkit-appearance: auto;
+     -moz-appearance: auto;
+          appearance: auto;
+}
+
+.card-selected {
+  border: 1px solid var(--Moderate-cyan);
+}/*# sourceMappingURL=style.css.map */

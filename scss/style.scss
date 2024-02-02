@@ -1,0 +1,10 @@
+// importando header
+@forward './component/header';
+
+// Importando main
+@forward './component/main';
+
+
+@use './base/reset';
+@use './base/var';
+@use './base/style-general';

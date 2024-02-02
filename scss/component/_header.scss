@@ -1,0 +1,117 @@
+@use "../base/mixins" as m;
+header {
+  width: min(100%, 375px);
+  height: 33vh;
+  margin: 0 auto;
+  background-image: url("../images/image-hero-mobile.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  .header__container {
+    padding: 1.875rem 1.5rem;
+    @include m.flex(row, wrap, space-between, center);
+    
+    .logo {
+      width: fit-content;
+    }
+
+    .icon-menu {
+      width: fit-content;
+      cursor: pointer;
+    }
+
+    .icon-close-menu{
+      width: fit-content;
+      cursor: pointer;
+      display: none;
+    }
+    .nav {
+      width: 100%;     
+      margin-top: 2rem;
+      background-color: var(--White);
+      border-radius: 8px;
+      box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);      
+      transition: opacity 500ms;
+      z-index: 1;
+      
+  
+      ul{
+        li{        
+          padding: 1.5rem;
+          font-weight: 700;
+  
+          &:hover{
+            cursor: pointer;
+            text-decoration: underline;          
+          }
+  
+        }
+        li:nth-child(1) , li:nth-child(2){
+          border-bottom: 1px solid var(--Gray);
+        }
+      }
+  
+      
+    }
+  }
+}
+
+
+@media screen and (min-width: 768px){
+  header {
+    width: min(100%, 1440px);
+    height: 43vh;
+    margin: 0 auto;
+    background-image: url("../images/image-hero-desktop.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    .header__container {
+      padding: 1.875rem 1.5rem;
+      @include m.flex(row, wrap, space-between, center);
+      .logo {
+        width: fit-content;
+      }
+  
+      .icon-menu {
+        display: none;
+      }
+  
+      .icon-close-menu{
+         display: none;
+      }
+      .nav {
+        width: fit-content;
+        height: auto;
+        margin-top: 0;
+        background-color: var(--White);
+        pointer-events: all;
+        transition: opacity 500ms;
+        opacity: 1;
+        background-color: transparent;
+    
+        ul{
+          @include m.flex(row, wrap, space-between, center);
+          
+          li{        
+            padding: 1.5rem;
+            font-weight: 700;
+            color: var(--White);
+    
+            &:hover{
+              cursor: pointer;
+              text-decoration: underline;          
+            }
+    
+          }
+          li:nth-child(1) , li:nth-child(2){
+            border-bottom: none
+          }
+        }
+    
+        
+      }
+    }
+  }
+  
+}
