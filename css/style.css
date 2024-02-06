@@ -199,7 +199,7 @@ header .header__container .nav ul li:nth-child(1), header .header__container .na
   color: var(--Dark-gray);
 }
 .main__container .modal {
-  position: sticky;
+  position: fixed;
   top: 80px;
   bottom: 0;
   left: 1.5rem;
@@ -308,7 +308,9 @@ header .header__container .nav ul li:nth-child(1), header .header__container .na
   justify-content: flex-start;
   align-items: center;
   position: fixed;
-  top: 150px;
+  position: fixed;
+  top: 80px;
+  bottom: 0;
   left: 1.5rem;
   right: 1.5rem;
 }
@@ -571,7 +573,7 @@ body {
 }
 
 .card-disabled {
-  opacity: 0.7;
+  opacity: 0.5;
   pointer-events: none;
   user-select: none;
 }

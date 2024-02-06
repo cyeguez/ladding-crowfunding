@@ -2,10 +2,12 @@ const iconMenu = document.querySelector(".icon-menu"); //Icono de hamburguesa
 const nav = document.querySelector(".nav"); //Nav
 const iconCloseMenu = document.querySelector(".icon-close-menu"); //icon x del menu
 const section3 = document.querySelector(".section3");
+const btnProject = document.getElementById("project");
 const btnsRewards = section3.querySelectorAll("button[type='button']"); // todas las cards de la sección3
 const modal = document.querySelector(".modal");
 const modalCards= modal.querySelectorAll(".card");
 const radios= modal.querySelectorAll("input[type='radio']"); //
+const modalSuccess = document.getElementById("modalSuccess");
 let nameClass;
 
 // funciones encargadas de mostrar el menu mobile
@@ -34,6 +36,12 @@ function paintCard(valueX) {
   let card = modal.querySelector(`#${valueX}`);
   let containerInput = card.querySelector(".modal__card__container-buttons");
   let inputRadio = card.querySelector("input[type='radio']");
+  let btnInput = containerInput.querySelector("button[type='button']");
+  const inputNum = containerInput.querySelector("input[type='number']");
+  console.log(inputNum);
+  
+validationSuccess(btnInput, inputNum);
+
   
   
   card.classList.add("card-selected");
@@ -45,6 +53,7 @@ function paintCard(valueX) {
 btnsRewards.forEach((btn) => {
   btn.addEventListener("click", function (e) {
     let nameCard = e.target.classList[1];
+    modal.classList.remove("hidden");
     paintCard(nameCard);
   });
 });
@@ -72,3 +81,20 @@ radios.forEach(input =>{
     paintCard(abuelo);
   })
 });
+
+btnProject.addEventListener('click', function(){
+modal.classList.remove('hidden');
+});
+
+function validationSuccess(btn, input){
+input.addEventListener('change', function(e){
+let valueInput = (e.target.value);
+btn.addEventListener('click', function(){
+
+  if(valueInput > 0 && valueInput !=""){
+    modal.classList.add("hidden");
+    modalSuccess.classList.remove('hidden');
+  }
+});
+})
+}
