@@ -2,7 +2,7 @@
 
 Hello!! 🤟🤟, welcome to my repo, thanks for stopping by here.
 
-This is a solution to the [Crowdfunding product page](https://www.frontendmentor.io/challenges/notifications-page-DqK5QAmKbC). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
+This is a solution to the [Crowdfunding product page](https://cyeguez.github.io/ladding-crowfunding/). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
 ## Table of contents
 
@@ -17,7 +17,7 @@ This is a solution to the [Crowdfunding product page](https://www.frontendmentor
 
 ## Overview
 
-
+The challenge consists of building a website, which is designed in mobile-fist, which consists of offering a series of products with a starting value and to be selected it directs it to a modal, the article with green borders and checked, is It displays a container with input that allows you to enter a positive value and when you press the continue button it shows a success modal.
 
 ### The challenge
 
@@ -28,12 +28,12 @@ Users should be able to:
 
 ### Screenshot
 
-![Preview mode desktop](./images/screenshot/Desktop.png)
-![Preview mode desktop](./images/screenshot/smarphone.png)
+![Preview mode desktop](./screenshot/Desktop.png)
+![Preview mode desktop](./screenshot/mobile.png)
 
 ### Links
 
-<a href="https://cyeguez.github.io/notifications-page-main/" target="_blank"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" target="_blank"></a>
+<a href="https://github.com/cyeguez/ladding-crowfunding/settings/pages" target="_blank"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" target="_blank"></a>
 
 ## My process
 
@@ -53,8 +53,12 @@ Users should be able to:
 
 ### What I learned
 
-I learned menu nesting.
+- I learned SVG manipulation.
+- Using the process bar in html.
+- Mejore en el uso de los selectores y propiedades de los elementos en js.
 
-![Nesstig ul](image.png)
+
+
 
 ## Author
+César Yeguez
