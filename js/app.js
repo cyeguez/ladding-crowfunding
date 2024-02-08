@@ -22,9 +22,12 @@ const showMenuMobile = (element) => {
   iconCloseMenu.style.display = "block";
 };
 
+// Evento disparador del menu
 iconMenu.addEventListener("click", () => {
   showMenuMobile(nav);
-}); // Evento disparador del menu
+}); 
+
+//
 
 iconCloseMenu.addEventListener("click", () => {
   nav.classList.add("hidden");
@@ -33,32 +36,21 @@ iconCloseMenu.addEventListener("click", () => {
 });
 
 
-
-
-
-
-
-
-
-// funciones encaegadas de activar bordes verdes
+// funciones encargadas de activar bordes verdes y seleccionar el input radio de la opción seleccioanada
 
 function paintCard(valueX) {
   let card = modal.querySelector(`#${valueX}`);
   let containerInput = card.querySelector(".modal__card__container-buttons");
   let inputRadio = card.querySelector("input[type='radio']");
   let btnInput = containerInput.querySelector("button[type='button']");
-  let inputNum = containerInput.querySelector("input[type='number']");
-  
-  
- 
-
-  validationSuccess(btnInput, inputNum);
+  let inputNum = containerInput.querySelector("input[type='number']");  validationSuccess(btnInput, inputNum);
 
   card.classList.add("card-selected");
   containerInput.classList.remove("hidden");
   inputRadio.checked = true;
 }
 
+//colocandole eventos a los botones reward
 btnsRewards.forEach((btn) => {
   btn.addEventListener("click", function (e) {
     let nameCard = e.target.classList[1];
@@ -67,6 +59,7 @@ btnsRewards.forEach((btn) => {
   });
 });
 
+// función encarga de quitar los border verdes y deseleccionar los input tipo radio
 const cardOff = () => {
   modalCards.forEach((card) => {
     let containerInput = card.querySelector(".modal__card__container-buttons");
@@ -90,7 +83,7 @@ radios.forEach((input) => {
 });
 
 
-
+// función encargada de validar y lanzar el modal success
 function validationSuccess(btn, input) {
   input.addEventListener("change", function (e) {
     let valueInput = e.target.value;
@@ -103,14 +96,14 @@ function validationSuccess(btn, input) {
   });
 }
 
+//función encarga de escuchar el evento clik el contenedor del bookmar, cambiar los colores del svg y mostrar el ed en el texto
 containerBookmark.addEventListener("click", function(){
   let bookmark = containerBookmark.querySelector('svg');
   let fill= bookmark.querySelector('.icon-bookmark__circle');
   let path = bookmark.querySelector('.icon-bookmark__path');
   let text = containerBookmark.querySelector('.bookmark__text');
-  let span = containerBookmark.querySelector('.bookmark__text--active');
-  
-  console.log(path, fill)
+  let span = containerBookmark.querySelector('.bookmark__text--active');  
+ 
   fill.setAttribute('fill', 'hsl(176, 72%, 28%)');
   path.setAttribute('fill', 'hsl(0, 0%, 100%)');
   text.style.color= 'hsl(176, 72%, 28%)';
@@ -118,10 +111,12 @@ containerBookmark.addEventListener("click", function(){
   
 });
 
+// evento del botón project el cual lanza al modal
 btnProject.addEventListener("click", function () {
   modal.classList.remove("hidden");
 });
 
+// evento del icono de close en el modal, el cual cierra el modal.
 closeModal.addEventListener("click", function () {
   modal.classList.add("hidden");
 });
