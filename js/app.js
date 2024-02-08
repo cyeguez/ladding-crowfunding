@@ -1,14 +1,17 @@
 const iconMenu = document.querySelector(".icon-menu"); //Icono de hamburguesa
 const nav = document.querySelector(".nav"); //Nav
 const iconCloseMenu = document.querySelector(".icon-close-menu"); //icon x del menu
-const section3 = document.querySelector(".section3");
+const containerBookmark = document.querySelector(".section1__container-buttons__bookmark"); //container del bookmark en la section 1
+const section3 = document.querySelector(".section3");// section 3
 const btnProject = document.getElementById("project");
 const btnsRewards = section3.querySelectorAll("button[type='button']"); // todas las cards de la sección3
 const modal = document.querySelector(".modal");
-const modalCards= modal.querySelectorAll(".card");
-const radios= modal.querySelectorAll("input[type='radio']"); //
+const modalCards = modal.querySelectorAll(".card");
+const closeModal = document.querySelector(".icon-close-modal");
+const radios = modal.querySelectorAll("input[type='radio']"); //
 const modalSuccess = document.getElementById("modalSuccess");
 let nameClass;
+
 
 // funciones encargadas de mostrar el menu mobile
 const showMenuMobile = (element) => {
@@ -29,25 +32,31 @@ iconCloseMenu.addEventListener("click", () => {
   iconMenu.style.display = "block";
 });
 
+
+
+
+
+
+
+
+
 // funciones encaegadas de activar bordes verdes
 
 function paintCard(valueX) {
-
   let card = modal.querySelector(`#${valueX}`);
   let containerInput = card.querySelector(".modal__card__container-buttons");
   let inputRadio = card.querySelector("input[type='radio']");
   let btnInput = containerInput.querySelector("button[type='button']");
-  const inputNum = containerInput.querySelector("input[type='number']");
-  console.log(inputNum);
+  let inputNum = containerInput.querySelector("input[type='number']");
   
-validationSuccess(btnInput, inputNum);
+  
+ 
 
-  
-  
+  validationSuccess(btnInput, inputNum);
+
   card.classList.add("card-selected");
   containerInput.classList.remove("hidden");
-  inputRadio.checked= true;
-
+  inputRadio.checked = true;
 }
 
 btnsRewards.forEach((btn) => {
@@ -58,43 +67,61 @@ btnsRewards.forEach((btn) => {
   });
 });
 
-const cardOff= () => {
- modalCards.forEach(card => {
-   let containerInput = card.querySelector(".modal__card__container-buttons");
-   let inputRadio = card.querySelector("input[type='radio']");
-   
-   card.classList.remove("card-selected");
-   containerInput.classList.add("hidden");
-   inputRadio.checked= false;
+const cardOff = () => {
+  modalCards.forEach((card) => {
+    let containerInput = card.querySelector(".modal__card__container-buttons");
+    let inputRadio = card.querySelector("input[type='radio']");
 
- });
+    card.classList.remove("card-selected");
+    containerInput.classList.add("hidden");
+    inputRadio.checked = false;
+  });
 };
 
-
 //Agregando los eventos a los inputs radios
-radios.forEach(input =>{
-  input.addEventListener("click", function(e){
-   let padre =(e.target.parentNode);
-   let abuelo = padre.parentNode.id
-   
+radios.forEach((input) => {
+  input.addEventListener("click", function (e) {
+    let padre = e.target.parentNode;
+    let abuelo = padre.parentNode.id;
+
     cardOff();
     paintCard(abuelo);
-  })
+  });
 });
 
-btnProject.addEventListener('click', function(){
-modal.classList.remove('hidden');
-});
 
-function validationSuccess(btn, input){
-input.addEventListener('change', function(e){
-let valueInput = (e.target.value);
-btn.addEventListener('click', function(){
 
-  if(valueInput > 0 && valueInput !=""){
-    modal.classList.add("hidden");
-    modalSuccess.classList.remove('hidden');
-  }
-});
-})
+function validationSuccess(btn, input) {
+  input.addEventListener("change", function (e) {
+    let valueInput = e.target.value;
+    btn.addEventListener("click", function () {
+      if (valueInput >= input.min) {
+        modal.classList.add("hidden");
+        modalSuccess.classList.remove("hidden");
+      }
+    });
+  });
 }
+
+containerBookmark.addEventListener("click", function(){
+  let bookmark = containerBookmark.querySelector('svg');
+  let fill= bookmark.querySelector('.icon-bookmark__circle');
+  let path = bookmark.querySelector('.icon-bookmark__path');
+  let text = containerBookmark.querySelector('.bookmark__text');
+  let span = containerBookmark.querySelector('.bookmark__text--active');
+  
+  console.log(path, fill)
+  fill.setAttribute('fill', 'hsl(176, 72%, 28%)');
+  path.setAttribute('fill', 'hsl(0, 0%, 100%)');
+  text.style.color= 'hsl(176, 72%, 28%)';
+  span.style.display= 'inline';
+  
+});
+
+btnProject.addEventListener("click", function () {
+  modal.classList.remove("hidden");
+});
+
+closeModal.addEventListener("click", function () {
+  modal.classList.add("hidden");
+});

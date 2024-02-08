@@ -1,5 +1,6 @@
 @use "../base/mixins" as m;
 .main {
+  position: relative;
   &__container {
     width: min(100%, 375px);
     margin: 0 auto;
@@ -7,7 +8,7 @@
     padding: 1.875rem 1.5rem;
 
     .section1 {
-      margin-top: -50px;
+      margin-top: -80px;
       position: relative;
 
       &__branch {
@@ -74,23 +75,22 @@
             margin: 1.5rem auto;
           }
         }
+      }
 
-        .section2__bar-progress {
-          width: 100%;
-          height: 1rem;
-          border-radius: 8px;
+      .section2__bar-progress {
+        width: 100%;
+        height: 1rem;
+        border-radius: 8px;
+      }
 
-          // border: 1px solid #ccc;
-        }
-
-        progress::-webkit-progress-bar {
-          background-color: var(--Gray);
-          border-radius: 8px;
-        }
-        progress::-webkit-progress-value {
-          background-color: var(--Moderate-cyan);
-          border-radius: 8px;
-        }
+      progress::-webkit-progress-bar {
+        width: 100%;
+        background-color: var(--Gray);
+        border-radius: 8px;
+      }
+      progress::-webkit-progress-value {
+        background-color: var(--Moderate-cyan);
+        border-radius: 8px;
       }
     }
 
@@ -111,20 +111,27 @@
       }
     }
     .modal {
+      width: calc(375px - 3rem);
       position: fixed;
-      top: 80px;
+      top: 100px;
       bottom: 0;
-      left: 1.5rem;
-      right: 1.5rem;
       overflow-y: auto;
+      border-radius: 8px;
+      box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2),
+        -1px -1px 2px rgba(0, 0, 0, 0.2);
 
       @include m.flex(row, wrap, space-between, center);
 
-      &__title {
-        margin-bottom: 0;
-      }
-      svg {
-        width: fit-content;
+      &__container-titles {
+        width: 100%;
+        @include m.flex(row, no-wrap, space-between, center);
+
+        &__title {
+          margin-bottom: 0;
+        }
+        svg {
+          width: fit-content;
+        }
       }
 
       &__parraf {
@@ -155,6 +162,7 @@
             font-weight: 700;
             line-height: 1.5rem;
             cursor: pointer;
+            white-space: pre-line;
 
             span {
               color: var(--Moderate-cyan);
@@ -172,27 +180,25 @@
           color: var(--Black);
           font-weight: 700;
           font-size: 0.875em;
-         
 
           &--text {
             color: var(--Dark-gray);
           }
         }
 
-
         &__container-buttons {
           @include m.flex(row, wrap, space-evenly, center);
           margin: -1.5rem;
           padding-top: 3rem;
           padding-bottom: 1.5rem;
+          border-top: 1px solid var(--Gray);
 
-          
-        hr {  
-          width: 100%;                 
-          height: 2px;
-          background-color: var(--Gray);
-          margin-bottom: 1.5rem;
-        }
+          hr {
+            width: 100%;
+            height: 2px;
+            background-color: var(--Gray);
+            margin-bottom: 1.5rem;
+          }
 
           p {
             width: 100%;
@@ -202,8 +208,8 @@
           }
 
           .input-num {
-            width: 93px;
-            height: 46px;
+            width: 117px;
+            height: 51px;
             padding-left: 2rem;
             border: 1px solid var(--Gray);
             border-radius: 50px;
@@ -223,16 +229,22 @@
     }
 
     .modal-success {
+      height: 23.9375rem;
+      border-radius: 8px;
       @include m.flex(column, no-wrap, flex-start, center);
       position: fixed;
       position: fixed;
       top: 80px;
+      left: 2rem;
+      right: 2rem;
       bottom: 0;
-      left: 1.5rem;
-      right: 1.5rem;
-      
+
+      box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2),
+        -2px -2px 4px rgba(0, 0, 0, 0.2);
+
       &__icon-check {
-        margin-bottom: 1.6875rem;
+        width: fit-content;
+        margin: 0 auto 1.6875rem auto;
       }
 
       &__title {
@@ -251,6 +263,294 @@
         line-height: 1.5rem;
         margin-bottom: 2rem;
         padding-inline: 1rem;
+      }
+    }
+  }
+}
+
+// MODO DESKTOP
+
+@media screen and (min-width: 768px) {
+  .main {
+    &__container {
+      width: 740px;
+      margin: 0 auto;
+      min-height: 10vh;
+      padding: 1.875rem 1.5rem;
+      position: relative;
+
+      .section1 {
+        margin-top: -80px;
+        position: relative;
+
+        &__branch {
+          position: absolute;
+          top: -30px;
+          left: calc(50% - 1.5rem);
+        }
+
+        &__title {
+          width: 60%;
+          margin: 57px auto 1.5rem auto;
+          font-size: 1em;
+          text-align: center;
+          font-weight: 700;
+          color: var(--Black);
+        }
+
+        &__text {
+          font-size: 1em;
+          
+        }
+
+        &__container-buttons {
+          @include m.flex(row, no-wrap, space-between, center);
+          margin-top: 1.5rem;
+
+          &__bookmark {
+            width: 193px;
+            @include m.flex(row, no-wrap, flex-start, center);
+            gap: 1rem;
+            background-color: var(--Gray);
+            border-radius: 50px;
+            cursor: pointer;
+
+            .icon-bookmark {
+              width: fit-content;
+              & circle:hover {
+                fill: var(--Dark-gray);
+              }
+
+              &:hover {
+                cursor: pointer;
+              }
+            }
+
+            .bookmark__text {
+              display: inline;
+              font-weight: 700;
+
+              &--active {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+
+      .section2 {
+        &__numbers {
+          display: grid;
+          grid-template-columns: 200px 230px 1fr;
+          grid-template-rows: 1fr;
+
+          &__item {
+            text-align: left;
+
+            .divider {
+              display: none;
+            }
+          }
+
+          &__item:nth-child(2) {
+            border-inline: 1px solid var(--Gray);
+            padding-right: 5rem;
+            padding-left: 2rem;
+          }
+          &__item:nth-child(3) {
+            padding-right: 5rem;
+            padding-left: 2rem;
+          }
+        }
+
+        .section2__bar-progress {
+          margin-top: 2.5rem;
+        }
+      }
+
+      .section3 {
+        &__title {
+          font-size: 1.25em;
+          font-weight: 700h;
+        }
+
+        &__text{
+          width: 98%;
+          font-size: 1rem
+        }
+        &__card {
+          @include m.flex(row, wrap, space-between, baseline);
+          &__container-titles {
+            width: 100%;
+            @include m.flex(row, wrap, space-between, baseline);
+            margin-bottom: 1.5rem;
+            
+            
+
+            &__title {
+              font-size: 1em;
+              color: var(--Black);
+              font-weight: 700;
+            }
+
+            &__subtitle{
+              font-size: 1em;
+              font-weight: 500;
+            }
+          }
+
+          &__text {
+            width: 100%;
+            font-size: 1em;
+          }
+
+          &__price {
+            width: fit-content;
+            font-size: 2em;
+          }
+          a {
+            width: fit-content;
+          }
+        }
+      }
+      .modal {
+        width: calc(740px - 3rem);
+        top: 170px;
+        margin: 0 auto;
+        overflow-y: auto;
+        @include m.flex(row, wrap, space-between, center);
+
+        &__container-titles {
+          &__title {
+            margin-bottom: 1rem;
+            font-size: 1.5em;
+            font-weight: 700;
+          }
+          svg {
+            width: fit-content;
+          }
+        }
+
+        &__parraf {
+          margin-top: 0.5rem;
+          width: 100%;
+          text-align: left;
+          font-size:1em;
+        }
+
+        &__card {
+          position: relative;
+          &__container-select {
+            margin-block: 1.5rem 1.875rem;
+            @include m.flex(row, no-wrap, flex-start, center);
+            gap: 1rem;
+
+            input {
+              cursor: pointer;
+
+              &:checked {
+                background-color: var(--Moderate-cyan);
+                accent-color: var(--Moderate-cyan);
+              }
+            }
+
+            label {
+              color: var(--Black);
+              font-weight: 700;
+              line-height: 1.5rem;
+              cursor: pointer;
+              white-space: normal;
+
+              span {
+                color: var(--Moderate-cyan);
+                margin-left: 1rem;
+              }
+            }
+          }
+
+          &__text {
+            font-size: 1em;
+            line-height: 1.5rem;
+            margin-bottom: 2rem;
+          }
+
+          &__price {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            color: var(--Black);
+            font-weight: 700;
+            font-size: 1rem;
+
+            &--text {
+              color: var(--Dark-gray);
+              margin-left: 0.2rem;
+              font-weight: 300;
+            }
+          }
+
+          &__container-buttons {
+            @include m.flex(row, wrap, flex-start, center);
+            margin-inline: -1.5rem;
+            margin-top: 1.5rem;
+            padding: 2rem 1.5rem 1.5rem 1.5rem;
+
+            p {
+              width: 40%;
+              text-align: left;
+              margin-right: 5rem;
+              margin-bottom: 0;
+            }
+
+            .input-num {
+              margin-right: 1.5rem;
+
+              &:focus {
+                outline: none;
+              }
+            }
+          }
+        }
+      }
+
+      .modal-success {
+        width: 551px;
+        height: 420px;
+        border-radius: 8px;
+        @include m.flex(column, no-wrap, flex-start, center);
+        position: absolute;
+        top: 120px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: 0 auto;
+
+        &__icon-check {
+          width: fit-content;
+          margin: 0 auto 1.6875rem auto;
+        }
+
+        &__title {
+          width: 100%;
+          font-size: 18px;
+          text-align: center;
+          font-weight: 700;
+          color: var(--Black);
+          margin-bottom: 1.75rem;
+        }
+
+        &__text {
+          width: 100%;
+          text-align: center;
+          font-size: 1em;
+          line-height: 2rem;
+          margin-bottom: 2rem;
+          padding-inline: 1rem;
+        }
+      }
+
+      button{
+        margin-bottom: 0;
       }
     }
   }

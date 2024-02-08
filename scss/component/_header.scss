@@ -5,7 +5,7 @@ header {
   margin: 0 auto;
   background-image: url("../images/image-hero-mobile.jpg");
   background-size: cover;
-  background-position: center;
+  background-position: center bottom;
   background-repeat: no-repeat;
   .header__container {
     padding: 1.875rem 1.5rem;
@@ -57,17 +57,18 @@ header {
 }
 
 
-@media screen and (min-width: 768px){
+@media screen and (min-width: 768px)  {
+
   header {
     width: min(100%, 1440px);
-    height: 43vh;
+    height: 25rem;
     margin: 0 auto;
     background-image: url("../images/image-hero-desktop.jpg");
     background-size: cover;
-    background-position: center;
+    background-position: center ;
     background-repeat: no-repeat;
     .header__container {
-      padding: 1.875rem 1.5rem;
+      padding: 2.9375rem 4.25rem;
       @include m.flex(row, wrap, space-between, center);
       .logo {
         width: fit-content;
@@ -89,6 +90,8 @@ header {
         transition: opacity 500ms;
         opacity: 1;
         background-color: transparent;
+        visibility: visible ;
+        box-shadow: none;
     
         ul{
           @include m.flex(row, wrap, space-between, center);
